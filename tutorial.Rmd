@@ -1,0 +1,52 @@
+---
+title: "sratoolkit tutorial windows y MacOS"
+author: "Gabriela Torres"
+date: "2022-09-22"
+output: html_document
+---
+
+# Tutorial MacOS
+## 1. Descargar y convertir secuencias
+Una vez que ya tenemos instalado el kit, se pueden descargar las secuencias con su numero de acceso que empieza con 'SRR' sino, no lo va a correr. El cual lo va a descargar en formati '.SRA.cache' o formato '.sra'
+
+```
+prefetch SRR3900953
+```
+
+Como no lo tenemos en un formato que se pueda leer, hay que convertirlo a formato '.fastq', esto mediante este comando. OJO, todo esto en la terminal.
+
+```
+fasterq-dump SRR3900953
+```
+
+Esto nos vas a devolver dos archivos formato '.fastq' pero uno con terminal '_1' perteneciente a la secuencia foward y '_2' a la secuencia reverse. 
+
+Despues para eliminar el archivo anterior, para evitar que confunda hay que hacerlo mediante este comando 
+
+````
+rm *.sra
+`````
+
+## 2. Descargar secuencias en conjunto 
+El numero de secuencias con el que voy a trabajar corresponde a 180 secuencias, las cuales para evitar descargar una por una se pueden descargar en conjunto mediante un archivo de texto simple '.txt', para esto se va poner todos los numeros de acceso en lista en un documento de texto simple, y lo vamos  a cargar a la terminal de la siguiente manera:
+
+`````
+nano num_secuencias_PRJNA778934.txt 
+prefetch --option-file /Users/Gaby/TESIS\ GABY/secuencias/sra/num_secuencias_PRJNA778934.txt 
+`````
+
+y ya nos va a descargar todas las secuencias en listadas, en la carepta de sra, todas estas estaran en formato '.sra', el cual habra que convertir como se habia descrito en el punto 1.2. 
+le ponemos el *.sra para que en automatico tome todas las secuencias para convertirlas en formato fastq, teniendo las secuencias _1 para las foward y las _2 para las reverse. 
+
+`````
+fasterq-dump *.sra 
+`````
+
+Ya por ultimo, vamos a borrar las secuencias con formato '.sra' para que no ocupen espacio y evitar confusiones.
+
+`````
+rm *.sra
+``````
+
+# Tutorial Windows 
+
