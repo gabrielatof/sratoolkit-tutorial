@@ -1,7 +1,7 @@
 ---
 title: "sratoolkit tutorial windows y MacOS"
 author: "Gabriela Torres"
-date: "2022-09-22"
+date: "2024-03-12"
 output: html_document
 ---
 
@@ -50,3 +50,22 @@ rm *.sra
 
 # Tutorial Windows 
 
+## 1. Descargar las secuencias
+Estas secuencias se descargan en formato .sra
+```
+.\prefetch SRR3900953
+```
+
+## 2. Transformar a formato fasta
+Para poder trabajar con las secuencias es necesario transformarlas en formato .fastq
+```
+.\fasterq-dump SRR16885503
+```
+Esta acción descarga dos archivos, uno con terminación _1 y otro _2, representando las secuencias foward y reverse respectivamente.
+
+## 3. Descargar multiples archivos
+
+```
+.\prefetch --option-file ~\bin\lista_secuencias.txt
+```
+El archivo dede ser un texto plano con el numero de acceso. Un numero por renglon.
