@@ -1,0 +1,47 @@
+---
+title: "sratoolkit"
+author: "Gabriela Torres"
+date: "2022-09-22"
+output: html_document
+---
+
+# Instalación en Mac OS
+
+una vez descargado el archivo, hay que extraer el archivo tar:
+
+`````
+tar -vxzf sratoolkit.tar.gz
+`````
+Despues hay que agregar una ruta a los archivos binarios mediante:
+
+`````
+export PATH=$PATH:$PWD/sratoolkit.3.0.0-mac64/bin
+`````
+Y verificar que la terminal encuentre los archivos 
+
+`````
+which fastq-dump
+``````
+
+# Instalación en Windows 
+
+Primero hay que extraer el archivo zip 
+
+`````
+Expand-Archive -Path "C:\Users\gxbri\OneDrive\Documents\genomica\sratoolkit.current-win64.zip" -DestinationPath "C:\Users\gxbri\OneDrive\Documents\genomica"
+`````
+
+Después hay que cambiarnos a la carpeta 
+`````
+cd .\sratoolkit.3.1.0-win64\
+`````
+
+Estando en esa carpeta nos vamos a re dirigir a la carpeta "bin"
+`````
+cd .\bin\
+`````
+
+Verificamos que la herramienta funcione
+`````
+fastq-dump --stdout -X 2 SRR390728
+`````
